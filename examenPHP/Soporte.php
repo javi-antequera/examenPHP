@@ -20,6 +20,7 @@ class Soporte{
      }
      public function muestraResumen(){
         echo "<br>Titulo: <strong>" . $this->titulo . "</strong>"; 
+        echo "<br>Nº de soporte: " . $this->getNumero() . ""; 
         echo "<br>Precio: " . $this->getPrecio() . " euros"; 
         echo "<br>Precio IVA incluido: " . $this->getPrecioConIVA() . " euros";
      }
