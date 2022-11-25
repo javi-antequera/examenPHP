@@ -27,10 +27,16 @@ class Videoclub{
         $this->numSocios=$this->numSocios+1;
     }
     public function listarProductos(){
-        
+        echo "Número de productos: $this->numProductos <br>";
+        foreach($this->productos as $p){
+            echo "<li> $this->productos[$p] </li>";
+        }
     }
     public function listarSocios(){
-
+        echo "Número de socios: $this->numSocios <br>";
+        foreach($this->socios as $s){
+            echo "<li> $this->socios[$s] </li>";
+        }
     }
     public function alquilarSocioProducto($numeroCliente,$numeroSoporte){
 
