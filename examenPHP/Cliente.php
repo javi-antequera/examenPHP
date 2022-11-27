@@ -29,13 +29,13 @@ class Cliente{
      }
      public function alquilar(Soporte $s){
         if($this->tieneAlquilado($s)){
-            echo "Este soporte ya está alquilado";
+            echo "Este soporte ya está alquilado <br>";
         }else if($this->numSoportesAlquilados>=$this->maxAlquilerConcurrente){
-            echo "Se ha superado el cupo de alquileres";
+            echo "Se ha superado el cupo de alquileres <br>";
         }else{
             $this->numSoportesAlquilados=$this->getNumSoportesAlquilados()+1;
-            array_push($soportesAlquilados,$s); 
-            echo "Alquiler realizado correctamente";
+            array_push($this->soportesAlquilados,$s); 
+            echo "Alquiler realizado correctamente <br>";
         }
      }
      public function devolver(int $numSoporte){
@@ -43,20 +43,25 @@ class Cliente{
         foreach($this->soportesAlquilados as $a){
             if($a->numero==$numSoporte){    
                 $alquilado=true;
+                unset($this->soportesAlquilados,$a);
             } 
         }
         if($alquilado){
-            echo "Devolución realizada correctamente";
-            $this->numSoportesAlquilados=$this->getNumSoportesAlquilados()-1;
+            echo "Devolución realizada correctamente <br>";
+            $this->numSoportesAlquilados--;
         }else{
-            echo "Este soporte no se encuentra alquilado";
+            echo "Este soporte no se encuentra alquilado <br>";
         }
     }
     public function listaAlquileres(){
-        echo "<br>Usted tiene : " . count($this->soportesAlquilados) . " alquileres: <br>";
-        foreach($this->soportesAlquilados as $a){
-            echo $a;
+        echo "<br>Usted tiene : " . /*count($this->soportesAlquilados)*/$this->numSoportesAlquilados . " alquileres: <br>";
+        $cont=1;
+        foreach($this->soportesAlquilados as $a){  
+            echo ("Alquiler $cont: ".$a->titulo);
+            echo"<br>";
+            $cont++;
         }
+
     }
      public function muestraResumen(){
         echo "<br>Nombre : <strong>" . $this->nombre . "</strong>"; 
