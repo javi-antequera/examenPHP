@@ -1,4 +1,10 @@
-<?php 
+<?php
+include_once "autoload.php";
+
+use util\CupoSuperadoException;
+use util\SoporteYaAlquiladoException;
+use util\SoporteNoEncontradoException;
+
 class Cliente{
     public $nombre;
     private $numero;
@@ -29,9 +35,11 @@ class Cliente{
      }
      public function alquilar(Soporte $s){
         if($this->tieneAlquilado($s)){
-            echo "Este soporte ya está alquilado <br>";
+            throw new SoporteYaAlquiladoException("<h3>Error: Este soporte ya esta alquilado</h3>");
+            //echo "Este soporte ya está alquilado <br>";
         }else if($this->numSoportesAlquilados>=$this->maxAlquilerConcurrente){
-            echo "Se ha superado el cupo de alquileres <br>";
+            throw new CupoSuperadoException ("<h3>Error: Cupo superado</h3>") ;
+            //echo "Se ha superado el cupo de alquileres <br>";
         }else{
             $this->numSoportesAlquilados++;
             array_push($this->soportesAlquilados,$s); 
@@ -51,7 +59,8 @@ class Cliente{
             echo "Devolución realizada correctamente <br>";
             $this->numSoportesAlquilados--;
         }else{
-            echo "Este soporte no se encuentra alquilado <br>";
+            throw new SoporteNoEncontradoException("<h3>Error: No se encuentra este soporte</h3>");
+            //echo "Este soporte no se encuentra alquilado <br>";
         }
     }
     public function listaAlquileres(){

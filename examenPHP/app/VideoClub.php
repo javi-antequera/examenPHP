@@ -1,4 +1,8 @@
 <?php 
+use util\ClienteNoEncontradoException;
+use util\CupoSuperadoException;
+use util\SoporteNoEncontradoException;
+use util\SoporteYaAlquiladoException;
 class Videoclub{
     private $nombre;
     private $productos=array();
@@ -40,7 +44,26 @@ class Videoclub{
         }
     }
     public function alquilarSocioProducto($numeroCliente,$numeroSoporte){
-        return $this;   
-    }
+        $socio= false;
+        $producto= false;
+            foreach ($this->socios as $soci) {
+                if ($soci->getNumero() == $numeroCliente) {
+                    $socio= true;
+                    foreach ($this->productos as $sop) {
+                        if ($sop->getNumero() == $numeroSoporte) {
+                            $producto = true;
+                            $soci->alquilar($sop);
+                            }
+                        }
+                }
+            }
+            if(!$producto){
+                throw new SoporteNoEncontradoException("<h3>Error: no existe ese soporte</h3>");
+            }
+            if(!$socio){
+                throw new ClienteNoEncontradoException("<h3 ->Error: socio no registrado</h3>");
+            }
+            return $this;
+        }
 }
 ?>
