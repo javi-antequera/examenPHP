@@ -3,6 +3,10 @@ use util\ClienteNoEncontradoException;
 use util\CupoSuperadoException;
 use util\SoporteNoEncontradoException;
 use util\SoporteYaAlquiladoException;
+include_once "Juego.php";
+include_once "Disco.php";
+include_once "CintaVideo.php";
+include_once "Cliente.php";
 class Videoclub{
     private $nombre;
     private $productos=array();
@@ -11,6 +15,10 @@ class Videoclub{
     private $numSocios;
     private $numProductosAlquilados;
     private $numTotalAlquileres;
+    public function __construct($nombre)
+    {
+        $this->$nombre=$nombre;
+    }
     public function getNumProductosAlquilados()
     {
         return $this->numProductosAlquilados;
@@ -49,18 +57,26 @@ class Videoclub{
     public function incluirSocio($nombre,$numero,$maxAlquileresConcurrentes=3){
         $cliente=new Cliente($nombre,$numero,$maxAlquileresConcurrentes);
         array_push($this->socios,$cliente);
-        $this->numSocios=$this->numSocios+1;
+        $this->numSocios++;
     }
     public function listarProductos(){
         echo "Número de productos: $this->numProductos <br>";
+        $listadoProd =  [];
         foreach($this->productos as $p){
-            echo "<li> $this->productos[$p] </li>";
+            array_push($listadoProd,$p->titulo);
+        }
+        foreach($listadoProd as $p){
+            echo "<li> $p </li>";
         }
     }
     public function listarSocios(){
-        echo "Número de socios: $this->numSocios <br>";
+        echo "Número de Socios: $this->numSocios <br>";
+        $listadoSoci =  [];
         foreach($this->socios as $s){
-            echo "<li> $this->socios[$s] </li>";
+            array_push($listadoSoci,$s->nombre);
+        }
+        foreach($listadoSoci as $s){
+            echo "<li> $s </li>";
         }
     }
     public function alquilarSocioProducto($numeroCliente,$numeroSoporte){
@@ -78,10 +94,10 @@ class Videoclub{
                 }
             }
             if(!$producto){
-                throw new SoporteNoEncontradoException("<h3>Error: no existe ese soporte</h3>");
+                //throw new SoporteNoEncontradoException("<h3>Error: no existe ese soporte</h3>");
             }
             if(!$socio){
-                throw new ClienteNoEncontradoException("<h3 ->Error: socio no registrado</h3>");
+                //throw new ClienteNoEncontradoException("<h3 ->Error: socio no registrado</h3>");
             }
             return $this;
         }

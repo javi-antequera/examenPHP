@@ -3,5 +3,5 @@
     $filePath = str_replace('\\', '/', $classPath . '.php');
     include_once ($filePath);
 }
-spl_autoload_register('autoloadRegister');
+//spl_autoload_register('autoloadRegister');
 ?>

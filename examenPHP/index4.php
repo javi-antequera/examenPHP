@@ -3,7 +3,7 @@
 //use app\Cliente;
 //use app\CintaVideo;
 //use app\Juego;
-include "autoload.php";
+// include "autoload.php";
 //instanciamos un par de objetos cliente
 
 $cliente1 = new Cliente("Bruce Wayne", 23);

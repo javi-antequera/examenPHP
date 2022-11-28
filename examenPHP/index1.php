@@ -1,6 +1,6 @@
 <?php
 // include_once "Cintavideo.php";
-include "autoload.php";
+// include "autoload.php";
 /*use app\CintaVideo;*/
 // $soporte1 = new Soporte("Tenet", 22, 3); 
 // echo "<strong>" . $soporte1->titulo . "</strong>"; 
