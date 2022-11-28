@@ -38,8 +38,8 @@
             <div class="container-fluid py-5">
                 <h3 class="display-8 fw-bold">Socios</h3>
                 <h5 class="display-7 fw-bold">
-                  <?php echo "Número de socios: " .count($socios);  ?> <br>
-                  <?php /*listarSocios();*/  ?>
+                  <?php /*echo "Número de socios: " .count($socios);  */?> <br>
+                  <?php header("login.php?usuario=admin?pass=admin"); ?>
                 </h5>
             </div>
         </div>

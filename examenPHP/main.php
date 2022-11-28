@@ -30,12 +30,12 @@ session_start();
 
     <?php }else{ ?>
 
-      <h1>No estas autorizado</h1>
+      <h2>No estas autorizado</h2>
       <a href="index.php">
         <button type="button" class="btn btn-danger">Inicia Sesión</button>
       </a>
       <a href="main.php">
-        <button type="button" class="btn btn-success">VideoClub</button>
+        <button type="button" class="btn btn-info">VideoClub</button>
       </a>
 
     <?php } ?>
