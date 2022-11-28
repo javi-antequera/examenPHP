@@ -15,6 +15,7 @@ abstract class Soporte implements Resumible{
     public $numero;
     private $precio;
      const IVA=21/100;
+     public $alquilado=false;
     public function __construct($titulo,$numero,$precio){
         $this->titulo=$titulo;
         $this->numero=$numero;

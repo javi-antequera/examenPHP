@@ -43,6 +43,7 @@ class Cliente{
         }else{
             $this->numSoportesAlquilados++;
             array_push($this->soportesAlquilados,$s); 
+            $s->alquilado=true;
             echo "Alquiler realizado correctamente <br>";
         }
         return $this;
@@ -52,6 +53,7 @@ class Cliente{
         foreach($this->soportesAlquilados as $a){
             if($a->numero==$numSoporte){    
                 $alquilado=true;
+                $a->alquilado=true;
                 unset($this->soportesAlquilados,$a);
             } 
         }
