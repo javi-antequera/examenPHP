@@ -8,6 +8,7 @@ class Videoclub{
     private function incluirProducto(Soporte $producto){
         array_push($this->productos,$producto);
         $this->numProductos=$this->numProductos+1;
+        return $this;
     }
     public function incluirCintaVideo($titulo,$numero,$precio,$duracion){
         $cinta=new CintaVideo($titulo,$numero,$precio,$duracion);
@@ -39,7 +40,7 @@ class Videoclub{
         }
     }
     public function alquilarSocioProducto($numeroCliente,$numeroSoporte){
-
+        return $this;   
     }
 }
 ?>

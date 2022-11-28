@@ -1,4 +1,5 @@
 <?php
+include "autoload.php";
 /*include_once "Videoclub.php"; // No incluimos nada más
 
 $vc = new Videoclub("Severo 8A"); 

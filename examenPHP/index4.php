@@ -1,10 +1,9 @@
 <?php
 //Includes: Faltan
-include "Soporte.php";
-include "Cliente.php";
-include "Disco.php";
-include "Juego.php";
-include "CintaVideo.php";
+//use app\Cliente;
+//use app\CintaVideo;
+//use app\Juego;
+include "autoload.php";
 //instanciamos un par de objetos cliente
 
 $cliente1 = new Cliente("Bruce Wayne", 23);
@@ -26,7 +25,7 @@ $cliente1->alquilar($soporte2);
 $cliente1->alquilar($soporte3);
 
 //voy a intentar alquilar de nuevo un soporte que ya tiene alquilado
-$cliente1->alquilar($soporte1);
+$cliente1->alquilar($soporte1)->alquilar($soporte3);
 //el cliente tiene 3 soportes en alquiler como máximo
 //este soporte no lo va a poder alquilar
 $cliente1->alquilar($soporte4);

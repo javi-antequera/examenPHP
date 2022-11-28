@@ -1,5 +1,5 @@
 <?php
-//include "Soporte.php";
+include_once "Soporte.php";
 class Disco extends Soporte{
     public $idiomas;
     private $formatPantalla;

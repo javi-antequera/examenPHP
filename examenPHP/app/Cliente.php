@@ -33,10 +33,11 @@ class Cliente{
         }else if($this->numSoportesAlquilados>=$this->maxAlquilerConcurrente){
             echo "Se ha superado el cupo de alquileres <br>";
         }else{
-            $this->numSoportesAlquilados=$this->getNumSoportesAlquilados()+1;
+            $this->numSoportesAlquilados++;
             array_push($this->soportesAlquilados,$s); 
             echo "Alquiler realizado correctamente <br>";
         }
+        return $this;
      }
      public function devolver(int $numSoporte){
         $alquilado=false;

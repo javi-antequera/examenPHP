@@ -1,5 +1,6 @@
 <?php
 //include "Soporte.php";
+include "autoload.php";
 class Juego extends Soporte{
     public $consola;
     private $minNumJugadores;

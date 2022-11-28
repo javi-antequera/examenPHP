@@ -1,4 +1,5 @@
 <?php
+include_once "Resumible.php";
 /*
    -CLASES ABSTRACTAS-
    Las clases abstractas son clases que sólo pueden ser heredadas, y definen métodos para las clases que las extienden
